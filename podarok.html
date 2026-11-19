@@ -1,553 +1,380 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Подарки от Gerkilop — 3 бесплатных шаблона и PDF-гид</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap');
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Подарки покупателям — Gerkilop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-variant-numeric: tabular-nums;
+        }
 
-  * {
-    box-sizing: border-box;
-    font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  }
+        body {
+            background: radial-gradient(circle at top, #233d32 0%, #111e18 100%);
+            color: #242e29;
+            min-height: 100vh;
+            padding: 28px 16px 48px;
+            line-height: 1.55;
+        }
 
-  body {
-    margin: 0;
-    padding: 48px 16px 56px;
-    background: radial-gradient(circle at 50% 20%, #F4EFE8 0%, #DFD6CA 100%);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    perspective: 1400px;
-  }
+        .page-wrap {
+            max-width: 820px;
+            margin: 0 auto;
+        }
 
-  .top-back-link {
-    margin-bottom: 24px;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    color: #5C4E46;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 700;
-    padding: 8px 16px;
-    background: rgba(255, 255, 255, 0.65);
-    border-radius: 50px;
-    border: 1px solid rgba(255, 255, 255, 0.9);
-    transition: background 0.2s, transform 0.2s;
-  }
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
 
-  .top-back-link:hover {
-    background: #FFFFFF;
-    transform: translateY(-1px);
-  }
+        .back-link {
+            color: #e5c372;
+            text-decoration: none;
+            font-size: 0.92rem;
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: 999px;
+            transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+        }
 
-  .studio-scene {
-    position: relative;
-    max-width: 630px;
-    width: 100%;
-    transform-style: preserve-3d;
-    transition: transform 0.15s ease-out;
-  }
+        .back-link:hover {
+            background: rgba(229, 195, 114, 0.14);
+            color: #f6dc93;
+            transform: translateX(-2px);
+        }
 
-  .base-board {
-    position: relative;
-    background-color: #FAF6F0;
-    background-image: 
-      radial-gradient(at 15% 15%, rgba(255, 255, 255, 0.9) 0%, transparent 50%),
-      radial-gradient(at 85% 85%, rgba(212, 198, 182, 0.45) 0%, transparent 60%);
-    border-radius: 28px;
-    padding: 40px 32px 34px;
-    border: 2px solid #FFFFFF;
-    box-shadow:
-      0 12px 0 #D2C5B6,
-      0 14px 0 #BFAEA0,
-      0 34px 60px rgba(46, 36, 29, 0.28),
-      0 10px 20px rgba(46, 36, 29, 0.12),
-      inset 0 2px 10px rgba(255, 255, 255, 0.95);
-    transform-style: preserve-3d;
-  }
+        .back-link:active {
+            transform: scale(0.97);
+        }
 
-  .paper-grain {
-    position: absolute;
-    inset: 0;
-    border-radius: 26px;
-    opacity: 0.35;
-    pointer-events: none;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.28'/%3E%3C/svg%3E");
-    z-index: 1;
-  }
+        .club-pill {
+            background: rgba(197, 155, 67, 0.16);
+            border: 1px solid rgba(229, 195, 114, 0.45);
+            color: #f6dc93;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            border-radius: 999px;
+        }
 
-  .cutout-layer-terracotta {
-    position: absolute;
-    top: -18px;
-    right: 28px;
-    background: linear-gradient(135deg, #D97A54 0%, #B85632 100%);
-    color: #FFFDF9;
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 0.8px;
-    text-transform: uppercase;
-    padding: 8px 18px;
-    border-radius: 12px;
-    border: 2px solid #F3B398;
-    box-shadow:
-      0 4px 0 #8F3E20,
-      0 12px 20px rgba(143, 62, 32, 0.32);
-    transform: translateZ(35px) rotate(2deg);
-    z-index: 6;
-  }
+        .main-card {
+            background: #fdfbf7;
+            border: 2px solid #c59b43;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+        }
 
-  .art-palette-3d {
-    position: absolute;
-    top: -30px;
-    left: -18px;
-    width: 104px;
-    height: 104px;
-    transform: translateZ(45px) rotate(-8deg);
-    filter: drop-shadow(0 14px 18px rgba(48, 35, 26, 0.28));
-    z-index: 7;
-    pointer-events: none;
-  }
+        .gold-strip {
+            height: 6px;
+            background: linear-gradient(90deg, #8e6923 0%, #f1d382 50%, #8e6923 100%);
+        }
 
-  .brush-3d {
-    position: absolute;
-    bottom: -22px;
-    right: -14px;
-    width: 90px;
-    height: 90px;
-    transform: translateZ(40px) rotate(12deg);
-    filter: drop-shadow(0 12px 16px rgba(48, 35, 26, 0.25));
-    z-index: 7;
-    pointer-events: none;
-  }
+        .hero-box {
+            background: #1b3228;
+            color: #ffffff;
+            padding: 30px 32px;
+            text-align: center;
+            border-bottom: 1px solid rgba(197, 155, 67, 0.5);
+        }
 
-  .content-wrapper {
-    position: relative;
-    z-index: 3;
-    transform: translateZ(15px);
-  }
+        .hero-box .tag {
+            display: inline-block;
+            color: #e5c372;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
 
-  h1 {
-    margin: 4px 0 10px;
-    text-align: center;
-    font-size: 28px;
-    font-weight: 800;
-    color: #261E1B;
-    letter-spacing: -0.5px;
-    line-height: 1.2;
-  }
+        .hero-box h1 {
+            font-size: 2.1rem;
+            font-weight: 800;
+            line-height: 1.25;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
 
-  .subtitle {
-    margin: 0 auto 24px;
-    max-width: 480px;
-    text-align: center;
-    font-size: 15px;
-    line-height: 1.5;
-    color: #5C4E46;
-    font-weight: 500;
-  }
+        .hero-box p {
+            color: #d6e2dc;
+            font-size: 0.98rem;
+            max-width: 580px;
+            margin: 0 auto;
+        }
 
-  .cards-stack {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-bottom: 24px;
-  }
+        .content-box {
+            padding: 30px 32px 34px;
+        }
 
-  .thick-card {
-    position: relative;
-    display: flex;
-    align-items: flex-start;
-    gap: 14px;
-    background: #FFFFFF;
-    border-radius: 16px;
-    padding: 14px 18px;
-    border: 1px solid #EFE8DF;
-    box-shadow:
-      0 4px 0 #E5DCD0,
-      0 10px 18px rgba(58, 45, 36, 0.07);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
+        .gifts-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
 
-  .thick-card:hover {
-    transform: translateY(-2px);
-    box-shadow:
-      0 6px 0 #E5DCD0,
-      0 14px 22px rgba(58, 45, 36, 0.1);
-  }
+        .gift-card {
+            background: #ffffff;
+            border: 1px solid #dfd0ad;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 10px 24px rgba(27, 50, 40, 0.08);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        }
 
-  .token-3d {
-    width: 42px;
-    height: 42px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    flex-shrink: 0;
-    box-shadow:
-      0 3px 0 rgba(0, 0, 0, 0.14),
-      inset 0 2px 2px rgba(255, 255, 255, 0.8);
-  }
+        .gift-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 32px rgba(27, 50, 40, 0.14);
+            border-color: #c59b43;
+        }
 
-  .token-gift {
-    background: linear-gradient(145deg, #FDE2D4 0%, #F4BFA6 100%);
-    border: 1px solid #FAD0BC;
-  }
+        .gift-thumb-wrap {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            background: #e9e4d8;
+            overflow: hidden;
+        }
 
-  .token-guide {
-    background: linear-gradient(145deg, #D9ECEA 0%, #AAD0CC 100%);
-    border: 1px solid #C5E2DF;
-  }
+        .gift-thumb-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.35s ease;
+        }
 
-  .token-lock {
-    background: linear-gradient(145deg, #EDE3F2 0%, #D2BDDD 100%);
-    border: 1px solid #DFD0E7;
-  }
+        .gift-card:hover .gift-thumb-wrap img {
+            transform: scale(1.04);
+        }
 
-  .card-text {
-    font-size: 14px;
-    line-height: 1.48;
-    color: #362C27;
-    padding-top: 2px;
-  }
+        .gift-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(27, 50, 40, 0.9);
+            color: #f6dc93;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 999px;
+            border: 1px solid rgba(229, 195, 114, 0.5);
+        }
 
-  .card-text strong {
-    color: #1F1815;
-    font-weight: 800;
-  }
+        .gift-meta {
+            padding: 14px;
+        }
 
-  .recessed-tray {
-    background: #EFE9E0;
-    border-radius: 20px;
-    padding: 18px;
-    border: 1px solid #E2D9CC;
-    box-shadow:
-      inset 0 3px 8px rgba(56, 44, 35, 0.1),
-      0 2px 0 #FFFFFF;
-  }
+        .gift-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #1b3228;
+            margin-bottom: 4px;
+        }
 
-  .inputs-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.25fr;
-    gap: 10px;
-    margin-bottom: 12px;
-  }
+        .gift-sub {
+            font-size: 0.82rem;
+            color: #5d6b64;
+        }
 
-  .tactile-input {
-    width: 100%;
-    padding: 14px 16px;
-    border-radius: 12px;
-    border: 2px solid #DFD5C7;
-    background: #FFFDFB;
-    font-size: 15px;
-    font-weight: 600;
-    color: #261E1B;
-    outline: none;
-    box-shadow:
-      0 3px 0 #E5DDD1,
-      inset 0 2px 4px rgba(0, 0, 0, 0.03);
-    transition: all 0.2s ease;
-  }
+        .form-panel {
+            background: linear-gradient(180deg, #f6f3e9 0%, #efe9d8 100%);
+            border: 1.5px solid #c59b43;
+            border-radius: 18px;
+            padding: 24px;
+            text-align: center;
+        }
 
-  .tactile-input::placeholder {
-    color: #9C8E83;
-    font-weight: 500;
-  }
+        .form-panel h2 {
+            font-size: 1.45rem;
+            font-weight: 800;
+            color: #1b3228;
+            margin-bottom: 6px;
+        }
 
-  .tactile-input:focus {
-    border-color: #C85A32;
-    background: #FFFFFF;
-    box-shadow:
-      0 3px 0 #C85A32,
-      0 0 0 4px rgba(200, 90, 50, 0.14);
-  }
+        .form-panel .form-hint {
+            font-size: 0.9rem;
+            color: #526059;
+            margin-bottom: 18px;
+        }
 
-  .heavy-cta-btn {
-    position: relative;
-    width: 100%;
-    padding: 17px 24px;
-    border: none;
-    border-radius: 14px;
-    background: linear-gradient(180deg, #DC6B41 0%, #C25229 100%);
-    color: #FFFFFF;
-    font-size: 16.5px;
-    font-weight: 800;
-    letter-spacing: 0.7px;
-    text-transform: uppercase;
-    cursor: pointer;
-    box-shadow:
-      0 6px 0 #8A3516,
-      0 14px 24px rgba(138, 53, 22, 0.35),
-      inset 0 2px 2px rgba(255, 255, 255, 0.45);
-    transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.2s ease;
-  }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 14px;
+        }
 
-  .heavy-cta-btn:hover {
-    transform: translateY(-2px);
-    background: linear-gradient(180deg, #E4754B 0%, #CA5930 100%);
-    box-shadow:
-      0 8px 0 #8A3516,
-      0 18px 28px rgba(138, 53, 22, 0.4),
-      inset 0 2px 3px rgba(255, 255, 255, 0.55);
-  }
+        .form-input {
+            width: 100%;
+            padding: 13px 16px;
+            border-radius: 12px;
+            border: 1px solid #c8b892;
+            background: #ffffff;
+            font-size: 0.95rem;
+            color: #1b3228;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
 
-  .heavy-cta-btn:active {
-    transform: translateY(4px);
-    box-shadow:
-      0 2px 0 #8A3516,
-      0 5px 10px rgba(138, 53, 22, 0.28),
-      inset 0 2px 4px rgba(0, 0, 0, 0.2);
-  }
+        .form-input:focus {
+            outline: none;
+            border-color: #b88931;
+            box-shadow: 0 0 0 3px rgba(197, 155, 67, 0.22);
+        }
 
-  .heavy-cta-btn:disabled {
-    background: #B8ABA0;
-    box-shadow: 0 4px 0 #8F8379;
-    cursor: not-allowed;
-    transform: none;
-  }
+        /* Анимированная золотая кнопка */
+        .btn-submit {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            padding: 15px 24px;
+            border-radius: 999px;
+            border: 1px solid #f7e1a8;
+            background: linear-gradient(135deg, #e5be6b 0%, #c59b43 50%, #b88931 100%);
+            background-size: 200% 200%;
+            color: #16261f;
+            font-size: 1rem;
+            font-weight: 800;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(184, 137, 49, 0.32);
+            transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+                        box-shadow 0.22s ease,
+                        background-position 0.4s ease;
+        }
 
-  .estis-msg {
-    display: none;
-    margin: 12px 0 0;
-    padding: 12px 14px;
-    border-radius: 10px;
-    font-size: 14px;
-    font-weight: 700;
-    text-align: center;
-    line-height: 1.4;
-  }
+        .btn-submit::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -120%;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+            transform: skewX(-20deg);
+            transition: left 0.55s ease;
+        }
 
-  .estis-msg.success {
-    display: block;
-    background: #E3F3E8;
-    color: #1B6332;
-    border: 1px solid #B5DEC2;
-    box-shadow: 0 3px 0 #B5DEC2;
-  }
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            background-position: 100% 50%;
+            box-shadow: 0 14px 28px rgba(184, 137, 49, 0.46);
+        }
 
-  .estis-msg.error {
-    display: block;
-    background: #FCE8E6;
-    color: #A8241C;
-    border: 1px solid #F2B8B5;
-  }
+        .btn-submit:hover::after {
+            left: 140%;
+        }
 
-  .micro-footer {
-    text-align: center;
-    font-size: 12px;
-    color: #8F8176;
-    margin-top: 12px;
-    font-weight: 500;
-  }
+        .btn-submit:active {
+            transform: translateY(0) scale(0.985);
+            box-shadow: 0 5px 14px rgba(184, 137, 49, 0.3);
+        }
 
-  @media (max-width: 580px) {
-    body {
-      padding-top: 28px;
-    }
-    .base-board {
-      padding: 32px 18px 26px;
-      border-radius: 22px;
-    }
-    .inputs-grid {
-      grid-template-columns: 1fr;
-    }
-    h1 {
-      font-size: 24px;
-    }
-    .art-palette-3d {
-      width: 82px;
-      height: 82px;
-      top: -24px;
-      left: -8px;
-    }
-    .brush-3d {
-      width: 72px;
-      height: 72px;
-      bottom: -16px;
-      right: -6px;
-    }
-  }
-</style>
+        .bottom-note {
+            margin-top: 12px;
+            font-size: 0.78rem;
+            color: #6b7871;
+        }
+
+        @media (max-width: 720px) {
+            .hero-box {
+                padding: 24px 18px;
+            }
+            .hero-box h1 {
+                font-size: 1.65rem;
+            }
+            .content-box {
+                padding: 20px 16px 26px;
+            }
+            .gifts-grid,
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-
-<a href="index.html" class="top-back-link">&larr; Вернуться на главную Gerkilop</a>
-
-<div class="studio-scene" id="scene">
-  <div class="base-board">
-    <div class="paper-grain"></div>
-
-    <!-- Вырубленный картонный ярлык -->
-    <div class="cutout-layer-terracotta">Gerkilop • Клуб</div>
-
-    <!-- Объёмная 3D-палитра с каплями густой краски -->
-    <svg class="art-palette-3d" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="woodGrad" x1="15" y1="15" x2="105" y2="105" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stop-color="#F3DFC1"/>
-          <stop offset="65%" stop-color="#DFC198"/>
-          <stop offset="100%" stop-color="#C39E6E"/>
-        </linearGradient>
-        <radialGradient id="paintRed" cx="35%" cy="30%" r="70%">
-          <stop offset="0%" stop-color="#F28B6B"/>
-          <stop offset="60%" stop-color="#C85A32"/>
-          <stop offset="100%" stop-color="#8A3516"/>
-        </radialGradient>
-        <radialGradient id="paintTeal" cx="35%" cy="30%" r="70%">
-          <stop offset="0%" stop-color="#9CD1CD"/>
-          <stop offset="60%" stop-color="#5B9E99"/>
-          <stop offset="100%" stop-color="#376E6A"/>
-        </radialGradient>
-        <radialGradient id="paintMustard" cx="35%" cy="30%" r="70%">
-          <stop offset="0%" stop-color="#F7D57E"/>
-          <stop offset="60%" stop-color="#D9A636"/>
-          <stop offset="100%" stop-color="#966E17"/>
-        </radialGradient>
-        <radialGradient id="paintPlum" cx="35%" cy="30%" r="70%">
-          <stop offset="0%" stop-color="#C9A2B8"/>
-          <stop offset="60%" stop-color="#8F637D"/>
-          <stop offset="100%" stop-color="#5C3B4E"/>
-        </radialGradient>
-      </defs>
-      <path d="M60 18C33 18 14 38 14 63C14 86 32 106 58 106C67 106 72 99 72 92C72 87 69 83 69 78C69 71 75 66 83 66H93C103 66 109 58 109 49C109 30 87 18 60 18Z" fill="#A88254" transform="translate(0, 6)"/>
-      <path d="M60 18C33 18 14 38 14 63C14 86 32 106 58 106C67 106 72 99 72 92C72 87 69 83 69 78C69 71 75 66 83 66H93C103 66 109 58 109 49C109 30 87 18 60 18Z" fill="url(#woodGrad)" stroke="#FFF7EB" stroke-width="2.5"/>
-      <circle cx="84" cy="46" r="8.5" fill="#E3DAD0" stroke="#B59164" stroke-width="2"/>
-      <circle cx="42" cy="40" r="10.5" fill="url(#paintRed)"/>
-      <ellipse cx="39" cy="36" rx="3.5" ry="2" transform="rotate(-25 39 36)" fill="white" fill-opacity="0.7"/>
-      <circle cx="31" cy="64" r="10" fill="url(#paintMustard)"/>
-      <ellipse cx="28" cy="60" rx="3.2" ry="1.8" transform="rotate(-25 28 60)" fill="white" fill-opacity="0.7"/>
-      <circle cx="47" cy="84" r="10.5" fill="url(#paintTeal)"/>
-      <ellipse cx="44" cy="80" rx="3.5" ry="2" transform="rotate(-25 44 80)" fill="white" fill-opacity="0.7"/>
-      <circle cx="64" cy="34" r="8.5" fill="url(#paintPlum)"/>
-      <ellipse cx="61.5" cy="31" rx="2.8" ry="1.5" transform="rotate(-25 61.5 31)" fill="white" fill-opacity="0.7"/>
-    </svg>
-
-    <!-- Объёмная кисть -->
-    <svg class="brush-3d" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="handleGrad" x1="20" y1="80" x2="70" y2="30" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stop-color="#8C583A"/>
-          <stop offset="50%" stop-color="#B87A56"/>
-          <stop offset="100%" stop-color="#6E4127"/>
-        </linearGradient>
-        <linearGradient id="ferruleGrad" x1="55" y1="45" x2="75" y2="25" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stop-color="#D4D9DD"/>
-          <stop offset="50%" stop-color="#FFFFFF"/>
-          <stop offset="100%" stop-color="#9AA3AB"/>
-        </linearGradient>
-        <linearGradient id="bristleGrad" x1="65" y1="35" x2="90" y2="10" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stop-color="#4A7E7A"/>
-          <stop offset="100%" stop-color="#8BC4C0"/>
-        </linearGradient>
-      </defs>
-      <path d="M16 86C13 83 46 47 54 39L62 47C54 55 19 89 16 86Z" fill="url(#handleGrad)" stroke="#FFF8F0" stroke-width="1.5"/>
-      <path d="M53 40L64 29L72 37L61 48L53 40Z" fill="url(#ferruleGrad)"/>
-      <path d="M64 29C69 21 81 14 89 12C87 20 80 32 72 37L64 29Z" fill="url(#bristleGrad)" stroke="#E3F5F4" stroke-width="1.5"/>
-    </svg>
-
-    <div class="content-wrapper">
-      <h1>Спасибо за покупку! 🎨</h1>
-      <p class="subtitle">
-        Это только начало вашего творческого пути. Подпишитесь на рассылку для покупателей — это бесплатно.
-      </p>
-
-      <div class="cards-stack">
-        <div class="thick-card">
-          <div class="token-3d token-gift">🎁</div>
-          <div class="card-text">
-            <strong>Сет из 3 эксклюзивных PDF‑шаблонов</strong> («Маяк», «Европейский дворик», «Букет цветов») — только для подписчиков.
-          </div>
+    <div class="page-wrap">
+        <div class="top-bar">
+            <a href="index.html" class="back-link">&larr; Вернуться на главную Gerkilop</a>
+            <span class="club-pill">&#10022; Gerkilop &bull; Клуб покупателей</span>
         </div>
 
-        <div class="thick-card">
-          <div class="token-3d token-guide">📘</div>
-          <div class="card-text">
-            <strong>Простая инструкция и видео:</strong> как раскрашивать по номерам на планшете — без сложных терминов.
-          </div>
+        <div class="main-card">
+            <div class="gold-strip"></div>
+
+            <div class="hero-box">
+                <span class="tag">Спасибо за покупку на Яндекс Маркете</span>
+                <h1>Заберите 3 PDF-шаблона в подарок</h1>
+                <p>Внутри каждого файла — готовый цветной пример, схема с номерами и палитра на 24 оттенка для печати и планшета.</p>
+            </div>
+
+            <div class="content-box">
+                <div class="gifts-grid">
+                    <div class="gift-card">
+                        <div class="gift-thumb-wrap">
+                            <span class="gift-badge">PDF &bull; 24 цвета</span>
+                            <img src="https://github.com/itfotost-spec/gerkilop/blob/main/gift-mayak.jpg?raw=true" alt="Шаблон Маяк">
+                        </div>
+                        <div class="gift-meta">
+                            <div class="gift-title">Маяк</div>
+                            <div class="gift-sub">Тёплый закат у скалистого берега</div>
+                        </div>
+                    </div>
+
+                    <div class="gift-card">
+                        <div class="gift-thumb-wrap">
+                            <span class="gift-badge">PDF &bull; 24 цвета</span>
+                            <img src="https://github.com/itfotost-spec/gerkilop/blob/main/gift-dvorik.jpg?raw=true" alt="Шаблон Европейский дворик">
+                        </div>
+                        <div class="gift-meta">
+                            <div class="gift-title">Европейский дворик</div>
+                            <div class="gift-sub">Уютная улочка с цветами и кафе</div>
+                        </div>
+                    </div>
+
+                    <div class="gift-card">
+                        <div class="gift-thumb-wrap">
+                            <span class="gift-badge">PDF &bull; 24 цвета</span>
+                            <img src="https://github.com/itfotost-spec/gerkilop/blob/main/gift-buket.jpg?raw=true" alt="Шаблон Букет цветов">
+                        </div>
+                        <div class="gift-meta">
+                            <div class="gift-title">Букет цветов</div>
+                            <div class="gift-sub">Нежные пионы в стеклянной вазе</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Подставь сюда свой рабочий код/action формы Estismail -->
+                <div class="form-panel">
+                    <h2>Куда отправить все 3 шаблона?</h2>
+                    <p class="form-hint">Укажите имя и почту — сразу отправим PDF-файлы и шпаргалку по планшету.</p>
+
+                    <form action="#" method="post">
+                        <div class="form-row">
+                            <input type="text" name="name" class="form-input" placeholder="Ваше имя" required>
+                            <input type="email" name="email" class="form-input" placeholder="Ваш Email" required>
+                        </div>
+                        <button type="submit" class="btn-submit">&#10022; Забрать все 3 подарка бесплатно &rarr;</button>
+                    </form>
+
+                    <p class="bottom-note">Бесплатно для покупателей Gerkilop. Отписаться можно в один клик в любом письме.</p>
+                </div>
+            </div>
         </div>
-
-        <div class="thick-card">
-          <div class="token-3d token-lock">🔒</div>
-          <div class="card-text">
-            <strong>Закрытые акции и спеццены</strong> — приходят только в письмах, в открытом доступе их не бывает.
-          </div>
-        </div>
-      </div>
-
-      <!-- Углубленный лоток регистрации -->
-      <div class="recessed-tray">
-        <form id="estis-form" action="https://mailer.estismail.com/subscribeme" method="post">
-          <input type="hidden" name="estis_form" value="nYe3EQtricEU">
-          <input type="text" name="estis_hp" value="" style="display:none" tabindex="-1" autocomplete="off">
-
-          <div class="inputs-grid">
-            <input type="text" name="name" class="tactile-input" placeholder="Ваше имя">
-            <input type="email" name="email" class="tactile-input" placeholder="Ваш Email" required>
-          </div>
-
-          <button type="submit" id="submit-btn" class="heavy-cta-btn">
-            ЗАБРАТЬ ПОДАРКИ
-          </button>
-
-          <p id="estis-msg" class="estis-msg"></p>
-        </form>
-        <div class="micro-footer">
-          Никакого спама — отписаться можно в любой момент в один клик
-        </div>
-      </div>
     </div>
-  </div>
-</div>
-
-<script>
-  const scene = document.getElementById('scene');
-  document.addEventListener('mousemove', (e) => {
-    if (window.innerWidth < 768) return;
-    const xAxis = (window.innerWidth / 2 - e.pageX) / 55;
-    const yAxis = (window.innerHeight / 2 - e.pageY) / 55;
-    scene.style.transform = `rotateY(${-xAxis}deg) rotateX(${yAxis}deg)`;
-  });
-
-  document.addEventListener('mouseleave', () => {
-    scene.style.transform = 'rotateY(0deg) rotateX(0deg)';
-  });
-
-  document.getElementById('estis-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const form = this;
-    const btn = document.getElementById('submit-btn');
-    const msg = document.getElementById('estis-msg');
-    const formData = new FormData(form);
-
-    btn.disabled = true;
-    btn.textContent = 'ОТПРАВЛЯЕМ ПОДАРКИ...';
-    msg.className = 'estis-msg';
-    msg.textContent = '';
-
-    fetch(form.action, {
-      method: 'POST',
-      body: formData,
-      mode: 'no-cors'
-    })
-    .then(() => {
-      msg.textContent = '🎉 Готово! Проверьте вашу почту (и папку «Спам», если письмо задержалось) — подарки уже отправлены!';
-      msg.classList.add('success');
-      form.reset();
-      btn.textContent = 'ПОДАРКИ ОТПРАВЛЕНЫ ✓';
-    })
-    .catch(() => {
-      msg.textContent = '⚠️ Не удалось отправить. Проверьте интернет и попробуйте ещё раз.';
-      msg.classList.add('error');
-      btn.disabled = false;
-      btn.textContent = 'ЗАБРАТЬ ПОДАРКИ';
-    });
-  });
-</script>
-
 </body>
 </html>
