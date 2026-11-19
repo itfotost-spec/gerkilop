@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Подарки покупателям — Gerkilop</title>
+    <title>GERKILOP DIGITAL | Расширенная коллекция схем</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
@@ -27,47 +27,6 @@
             margin: 0 auto;
         }
 
-        .top-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 18px;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .back-link {
-            color: #e5c372;
-            text-decoration: none;
-            font-size: 0.92rem;
-            font-weight: 600;
-            padding: 6px 12px;
-            border-radius: 999px;
-            transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
-        }
-
-        .back-link:hover {
-            background: rgba(229, 195, 114, 0.14);
-            color: #f6dc93;
-            transform: translateX(-2px);
-        }
-
-        .back-link:active {
-            transform: scale(0.97);
-        }
-
-        .club-pill {
-            background: rgba(197, 155, 67, 0.16);
-            border: 1px solid rgba(229, 195, 114, 0.45);
-            color: #f6dc93;
-            font-size: 0.78rem;
-            font-weight: 700;
-            letter-spacing: 1.2px;
-            text-transform: uppercase;
-            padding: 6px 14px;
-            border-radius: 999px;
-        }
-
         .main-card {
             background: #fdfbf7;
             border: 2px solid #c59b43;
@@ -84,38 +43,45 @@
         .hero-box {
             background: #1b3228;
             color: #ffffff;
-            padding: 30px 32px;
+            padding: 32px 32px;
             text-align: center;
             border-bottom: 1px solid rgba(197, 155, 67, 0.5);
         }
 
-        .hero-box .tag {
+        .hero-box .brand-top {
             display: inline-block;
             color: #e5c372;
             font-size: 0.78rem;
-            font-weight: 700;
+            font-weight: 800;
             letter-spacing: 2px;
             text-transform: uppercase;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
         .hero-box h1 {
-            font-size: 2.1rem;
+            font-size: 2rem;
             font-weight: 800;
             line-height: 1.25;
             color: #ffffff;
             margin-bottom: 10px;
         }
 
-        .hero-box p {
+        .hero-box .subtitle {
+            color: #f6dc93;
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .hero-box p.desc {
             color: #d6e2dc;
-            font-size: 0.98rem;
-            max-width: 580px;
+            font-size: 0.96rem;
+            max-width: 640px;
             margin: 0 auto;
         }
 
         .content-box {
-            padding: 30px 32px 34px;
+            padding: 28px 32px 34px;
         }
 
         .gifts-grid {
@@ -180,7 +146,7 @@
         }
 
         .gift-title {
-            font-size: 1.1rem;
+            font-size: 1.08rem;
             font-weight: 700;
             color: #1b3228;
             margin-bottom: 4px;
@@ -203,13 +169,14 @@
             font-size: 1.45rem;
             font-weight: 800;
             color: #1b3228;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
         }
 
         .form-panel .form-hint {
-            font-size: 0.9rem;
-            color: #526059;
-            margin-bottom: 18px;
+            font-size: 0.94rem;
+            color: #46544d;
+            max-width: 600px;
+            margin: 0 auto 18px;
         }
 
         .form-row {
@@ -236,7 +203,6 @@
             box-shadow: 0 0 0 3px rgba(197, 155, 67, 0.22);
         }
 
-        /* Анимированная золотая кнопка */
         .btn-submit {
             position: relative;
             overflow: hidden;
@@ -308,26 +274,22 @@
 </head>
 <body>
     <div class="page-wrap">
-        <div class="top-bar">
-            <a href="index.html" class="back-link">&larr; Вернуться на главную Gerkilop</a>
-            <span class="club-pill">&#10022; Gerkilop &bull; Клуб покупателей</span>
-        </div>
-
         <div class="main-card">
             <div class="gold-strip"></div>
 
             <div class="hero-box">
-                <span class="tag">Спасибо за покупку на Яндекс Маркете</span>
-                <h1>Заберите 3 PDF-шаблона в подарок</h1>
-                <p>Внутри каждого файла — готовый цветной пример, схема с номерами и палитра на 24 оттенка для печати и планшета.</p>
+                <span class="brand-top">GERKILOP DIGITAL</span>
+                <h1>Расширенная коллекция схем</h1>
+                <div class="subtitle">3 дополнительных сюжета к вашему набору</div>
+                <p class="desc">Готовые цветные примеры, детальные контурные схемы и точные палитры на 24 оттенка. Подходят для раскрашивания на планшете (Procreate, IbisPaint) или самостоятельной печати.</p>
             </div>
 
             <div class="content-box">
                 <div class="gifts-grid">
                     <div class="gift-card">
                         <div class="gift-thumb-wrap">
-                            <span class="gift-badge">PDF &bull; 24 цвета</span>
-                            <img src="https://github.com/itfotost-spec/gerkilop/blob/main/gift-mayak.jpg?raw=true" alt="Шаблон Маяк">
+                            <span class="gift-badge">PDF • 24 цвета</span>
+                            <img src="https://github.com/itfotost-spec/gerkilop/blob/main/gift-mayak.jpg?raw=true" alt="Схема Маяк">
                         </div>
                         <div class="gift-meta">
                             <div class="gift-title">Маяк</div>
@@ -337,8 +299,8 @@
 
                     <div class="gift-card">
                         <div class="gift-thumb-wrap">
-                            <span class="gift-badge">PDF &bull; 24 цвета</span>
-                            <img src="https://github.com/itfotost-spec/gerkilop/blob/main/gift-dvorik.jpg?raw=true" alt="Шаблон Европейский дворик">
+                            <span class="gift-badge">PDF • 24 цвета</span>
+                            <img src="https://github.com/itfotost-spec/gerkilop/blob/main/gift-dvorik.jpg?raw=true" alt="Схема Европейский дворик">
                         </div>
                         <div class="gift-meta">
                             <div class="gift-title">Европейский дворик</div>
@@ -348,8 +310,8 @@
 
                     <div class="gift-card">
                         <div class="gift-thumb-wrap">
-                            <span class="gift-badge">PDF &bull; 24 цвета</span>
-                            <img src="https://github.com/itfotost-spec/gerkilop/blob/main/gift-buket.jpg?raw=true" alt="Шаблон Букет цветов">
+                            <span class="gift-badge">PDF • 24 цвета</span>
+                            <img src="https://github.com/itfotost-spec/gerkilop/blob/main/gift-buket.jpg?raw=true" alt="Схема Букет цветов">
                         </div>
                         <div class="gift-meta">
                             <div class="gift-title">Букет цветов</div>
@@ -357,23 +319,23 @@
                         </div>
                     </div>
                 </div>
-<form id="estis-form" action="https://mailer.estismail.com/subscribeme" method="post">
-          <input type="hidden" name="estis_form" value="nYe3EQtricEU">
-          <input type="text" name="estis_hp" value="" style="display:none" tabindex="-1" autocomplete="off">
-                <!-- Подставь сюда свой рабочий код/action формы Estismail -->
-                <div class="form-panel">
-                    <h2>Куда отправить все 3 шаблона?</h2>
-                    <p class="form-hint">Укажите имя и почту — сразу отправим PDF-файлы и шпаргалку по планшету.</p>
 
-                    <form action="#" method="post">
+                <div class="form-panel">
+                    <h2>Как забрать комплект?</h2>
+                    <p class="form-hint">Нажмите на кнопку ниже, укажите ваше имя и email — и архив со схемами и пошаговой инструкцией для планшета придёт на почту автоматически через 1 минуту.</p>
+
+                    <form id="estis-form" action="https://mailer.estismail.com/subscribeme" method="post">
+                        <input type="hidden" name="estis_form" value="nYe3EQtricEU">
+                        <input type="text" name="estis_hp" value="" style="display:none" tabindex="-1" autocomplete="off">
+
                         <div class="form-row">
                             <input type="text" name="name" class="form-input" placeholder="Ваше имя" required>
                             <input type="email" name="email" class="form-input" placeholder="Ваш Email" required>
                         </div>
-                        <button type="submit" class="btn-submit">&#10022; Забрать все 3 подарка бесплатно &rarr;</button>
+                        <button type="submit" class="btn-submit">Скачать 3 схемы на почту &rarr;</button>
                     </form>
 
-                    <p class="bottom-note">Бесплатно для покупателей Gerkilop. Отписаться можно в один клик в любом письме.</p>
+                    <p class="bottom-note">Автоматическая отправка на указанный Email • Бесплатно для покупателей Gerkilop</p>
                 </div>
             </div>
         </div>
