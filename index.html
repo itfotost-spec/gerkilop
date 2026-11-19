@@ -3,22 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gerkilop — Цифровые картины по номерам</title>
-    <!-- Шрифты -->
+    <title>Подарки покупателям — Gerkilop</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --bg-color: #f2f5f1;
-            --card-bg: #ffffff;
-            --accent-green: #2c4a3e;
-            --accent-sage: #7c9082;
-            --accent-gold: #d4a373;
-            --text-main: #2b332d;
-            --text-muted: #626d64;
-            --shadow: 0 20px 40px -15px rgba(44, 74, 62, 0.12);
-            --radius: 24px;
-        }
-
         * {
             box-sizing: border-box;
             margin: 0;
@@ -27,604 +14,311 @@
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            overflow-x: hidden;
-            line-height: 1.6;
+            background: radial-gradient(circle at top, #233d32 0%, #111e18 100%);
+            color: #242e29;
+            min-height: 100vh;
+            padding: 28px 16px 48px;
+            line-height: 1.55;
         }
 
-        /* Навигация */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            background: rgba(242, 245, 241, 0.95);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(124, 144, 130, 0.15);
-        }
-
-        .nav-container {
-            max-width: 1200px;
+        .page-wrap {
+            max-width: 820px;
             margin: 0 auto;
-            padding: 1rem 2rem;
+        }
+
+        .top-bar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-        }
-
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--accent-green);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            white-space: nowrap;
-        }
-
-        .logo span {
-            font-size: 0.9rem;
-            background: var(--accent-green);
-            color: white;
-            padding: 2px 8px;
-            border-radius: 12px;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-weight: 500;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-            align-items: center;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-main);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent-sage);
-        }
-
-        .btn-tg {
-            background: var(--accent-green);
-            color: white;
-            padding: 0.6rem 1.2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: transform 0.2s, background 0.2s;
-            white-space: nowrap;
-            font-size: 0.95rem;
-        }
-
-        .btn-tg:hover {
-            background: #1f352c;
-            transform: translateY(-2px);
-        }
-
-        /* Главный экран */
-        .hero {
-            padding: 140px 2rem 80px;
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .hero-content h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.2rem;
-            line-height: 1.2;
-            color: var(--accent-green);
-            margin-bottom: 1.5rem;
-        }
-
-        .hero-content p {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            margin-bottom: 2rem;
-        }
-
-        .hero-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            align-items: center;
-        }
-
-        .btn-market {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
+            margin-bottom: 18px;
             gap: 12px;
-            background: #fc3f1d;
-            color: white;
-            padding: 1rem 2.2rem;
-            border-radius: 50px;
+            flex-wrap: wrap;
+        }
+
+        .back-link {
+            color: #e5c372;
             text-decoration: none;
-            font-weight: 700;
-            font-size: 1.05rem;
-            box-shadow: 0 10px 25px rgba(252, 63, 29, 0.3);
-            transition: transform 0.2s, box-shadow 0.2s;
-            text-align: center;
-            line-height: 1.3;
-        }
-
-        .btn-market:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(252, 63, 29, 0.4);
-        }
-
-        .btn-gift {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            background: #ffffff;
-            color: var(--accent-green);
-            border: 2px solid var(--accent-green);
-            padding: 0.95rem 1.8rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.05rem;
-            transition: transform 0.2s, background 0.2s, color 0.2s;
-            text-align: center;
-            line-height: 1.3;
-        }
-
-        .btn-gift:hover {
-            background: var(--accent-green);
-            color: #ffffff;
-            transform: translateY(-3px);
-        }
-
-        /* --- 3D КОНТЕЙНЕР --- */
-        .hero-3d-wrapper {
-            position: relative;
-            width: 100%;
-            max-width: 500px;
-            aspect-ratio: 4/3;
-            margin: 0 auto;
-            perspective: 1000px;
-        }
-
-        .scene-card {
-            width: 100%;
-            height: 100%;
-            position: relative;
-            transform-style: preserve-3d;
-            transition: transform 0.1s ease-out;
-            border-radius: var(--radius);
-            box-shadow: 0 30px 60px rgba(44, 74, 62, 0.25);
-            cursor: pointer;
-            background: #ddd;
-        }
-
-        .layer-back {
-            position: absolute;
-            inset: 0;
-            background-image: url('https://i.pinimg.com/474x/53/67/8a/53678a6d334aa84589eb0c88d7669db2.jpg?nii=t');
-            background-size: cover;
-            background-position: center;
-            border-radius: var(--radius);
-            transform: translateZ(-30px) scale(1.05);
-        }
-
-        .layer-front {
-            position: absolute;
-            inset: 0;
-            background-image: url('https://i.pinimg.com/474x/53/67/8a/53678a6d334aa84589eb0c88d7669db2.jpg?nii=t');
-            background-size: cover;
-            background-position: center;
-            border-radius: var(--radius);
-            transform: translateZ(40px);
-            -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 45%);
-            mask-image: linear-gradient(to bottom, transparent 0%, black 45%);
-        }
-
-        .glare-effect {
-            position: absolute;
-            inset: 0;
-            border-radius: var(--radius);
-            background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.15), transparent 60%);
-            transform: translateZ(1px);
-            opacity: 0;
-            transition: opacity 0.3s;
-            pointer-events: none;
-        }
-
-        .hero-3d-wrapper:hover .glare-effect {
-            opacity: 1;
-        }
-
-        .scene-label {
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 8px 16px;
-            border-radius: 50px;
-            font-size: 0.9rem;
+            font-size: 0.92rem;
             font-weight: 600;
-            color: var(--accent-green);
-            transform: translateZ(60px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            pointer-events: none;
         }
 
-        /* О бренде */
-        .about-section {
-            max-width: 1200px;
-            margin: 0 auto 5rem;
-            padding: 0 2rem;
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-        }
-
-        .about-card {
-            background: var(--card-bg);
-            padding: 2.5rem;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            border: 1px solid rgba(124, 144, 130, 0.1);
-        }
-
-        .about-card .number {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: var(--accent-sage);
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-
-        .about-card h3 {
-            font-size: 1.3rem;
-            color: var(--accent-green);
-            margin-bottom: 0.8rem;
-        }
-
-        .about-card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        /* Категории */
-        .categories-section {
-            max-width: 1200px;
-            margin: 0 auto 6rem;
-            padding: 0 2rem;
-        }
-
-        .section-title {
-            text-align: center;
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: var(--accent-green);
-            margin-bottom: 3rem;
-        }
-
-        .categories-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-        }
-
-        .cat-card {
-            background: var(--card-bg);
-            border-radius: var(--radius);
-            padding: 2.5rem;
-            display: flex;
-            align-items: flex-start;
-            gap: 2rem;
-            box-shadow: var(--shadow);
-            border: 1px solid rgba(124, 144, 130, 0.1);
-            transition: transform 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cat-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .cat-num {
-            font-family: 'Playfair Display', serif;
-            font-size: 4rem;
-            font-weight: 700;
-            color: rgba(124, 144, 130, 0.2);
-            line-height: 1;
-            min-width: 60px;
-        }
-
-        .cat-info h3 {
-            font-size: 1.5rem;
-            color: var(--accent-green);
-            margin-bottom: 0.5rem;
-        }
-
-        .cat-info p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .cat-link {
-            color: var(--accent-green);
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .cat-link:hover {
+        .back-link:hover {
             text-decoration: underline;
         }
 
-        /* Футер */
-        footer {
-            background: #172821;
-            color: white;
-            padding: 4rem 2rem;
+        .club-pill {
+            background: rgba(197, 155, 67, 0.16);
+            border: 1px solid rgba(229, 195, 114, 0.45);
+            color: #f6dc93;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            border-radius: 999px;
+        }
+
+        .main-card {
+            background: #fdfbf7;
+            border: 2px solid #c59b43;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+        }
+
+        .gold-strip {
+            height: 6px;
+            background: linear-gradient(90deg, #8e6923 0%, #f1d382 50%, #8e6923 100%);
+        }
+
+        .hero-box {
+            background: #1b3228;
+            color: #ffffff;
+            padding: 30px 32px;
+            text-align: center;
+            border-bottom: 1px solid rgba(197, 155, 67, 0.5);
+        }
+
+        .hero-box .tag {
+            display: inline-block;
+            color: #e5c372;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .hero-box h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.15rem;
+            line-height: 1.2;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .hero-box p {
+            color: #d6e2dc;
+            font-size: 0.98rem;
+            max-width: 580px;
+            margin: 0 auto;
+        }
+
+        .content-box {
+            padding: 30px 32px 34px;
+        }
+
+        .gifts-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .gift-card {
+            background: #ffffff;
+            border: 1px solid #dfd0ad;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 10px 24px rgba(27, 50, 40, 0.08);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .gift-thumb-wrap {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            background: #e9e4d8;
+            overflow: hidden;
+        }
+
+        .gift-thumb-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gift-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(27, 50, 40, 0.9);
+            color: #f6dc93;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 999px;
+            border: 1px solid rgba(229, 195, 114, 0.5);
+        }
+
+        .gift-meta {
+            padding: 14px;
+        }
+
+        .gift-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #1b3228;
+            margin-bottom: 4px;
+        }
+
+        .gift-sub {
+            font-size: 0.82rem;
+            color: #5d6b64;
+        }
+
+        .form-panel {
+            background: linear-gradient(180deg, #f6f3e9 0%, #efe9d8 100%);
+            border: 1.5px solid #c59b43;
+            border-radius: 18px;
+            padding: 24px;
             text-align: center;
         }
 
-        footer p {
-            opacity: 0.7;
-            margin-top: 1rem;
-            font-size: 0.9rem;
-        }
-
-        .footer-logo {
+        .form-panel h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            margin-bottom: 1rem;
+            font-size: 1.55rem;
+            color: #1b3228;
+            margin-bottom: 6px;
         }
 
-        /* --- АДАПТИВНОСТЬ --- */
-        @media (max-width: 900px) {
-            .nav-container {
-                padding: 0.8rem 1rem;
-            }
+        .form-panel .form-hint {
+            font-size: 0.9rem;
+            color: #526059;
+            margin-bottom: 18px;
+        }
 
-            .logo {
-                font-size: 1.4rem;
-            }
-            
-            .logo span {
-                font-size: 0.75rem;
-                padding: 2px 6px;
-            }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 14px;
+        }
 
-            .nav-links {
-                display: none;
-            }
+        .form-input {
+            width: 100%;
+            padding: 13px 16px;
+            border-radius: 12px;
+            border: 1px solid #c8b892;
+            background: #ffffff;
+            font-size: 0.95rem;
+            font-family: inherit;
+            color: #1b3228;
+        }
 
-            .btn-tg {
-                padding: 0.5rem 0.8rem;
-                font-size: 0.8rem;
-                gap: 5px;
-            }
-            
-            .btn-tg svg {
-                width: 14px;
-                height: 14px;
-            }
+        .form-input:focus {
+            outline: 2px solid #c59b43;
+            border-color: #1b3228;
+        }
 
-            .hero {
+        .btn-submit {
+            width: 100%;
+            padding: 15px 24px;
+            border-radius: 999px;
+            border: 1px solid #f7e1a8;
+            background: linear-gradient(135deg, #e5be6b 0%, #b88931 100%);
+            color: #16261f;
+            font-size: 1rem;
+            font-weight: 800;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(184, 137, 49, 0.32);
+        }
+
+        .bottom-note {
+            margin-top: 12px;
+            font-size: 0.78rem;
+            color: #6b7871;
+        }
+
+        @media (max-width: 720px) {
+            .hero-box {
+                padding: 24px 18px;
+            }
+            .hero-box h1 {
+                font-size: 1.65rem;
+            }
+            .content-box {
+                padding: 20px 16px 26px;
+            }
+            .gifts-grid,
+            .form-row {
                 grid-template-columns: 1fr;
-                text-align: center;
-                padding-top: 100px;
-                gap: 2rem;
-            }
-            
-            .hero-content h1 {
-                font-size: 2.2rem;
-            }
-
-            .hero-buttons {
-                justify-content: center;
-            }
-
-            .hero-3d-wrapper {
-                margin-top: 1rem;
-                max-width: 100%;
-            }
-
-            .about-grid, .categories-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            .cat-card {
-                padding: 1.5rem;
-                flex-direction: row;
-                align-items: center;
-            }
-
-            .cat-num {
-                font-size: 3rem;
-                min-width: 50px;
-            }
-
-            .cat-info h3 {
-                font-size: 1.3rem;
-                margin-bottom: 0.3rem;
-            }
-            
-            .cat-info p {
-                font-size: 0.9rem;
-                margin-bottom: 1rem;
-                line-height: 1.4;
             }
         }
     </style>
 </head>
 <body>
-
-    <!-- Навигация -->
-    <header>
-        <div class="nav-container">
-            <a href="#" class="logo">Gerkilop <span>Digital</span></a>
-            <ul class="nav-links">
-                <li><a href="#about">О бренде</a></li>
-                <li><a href="#categories">Категории</a></li>
-                <li><a href="podarok.html">🎁 Подарки покупателям</a></li>
-                <li><a href="https://market.yandex.ru/business--gerkilop2/216670013?generalContext=t%3DshopInShop%3Bi%3D1%3Bbi%3D216670013%3B&rs=eJwzkv3EKMLBKLDwEKsEg0bPUVaNjUB89ijrXqYJ9_c4AgCSfwr7&searchContext=sins_ctx" target="_blank">Яндекс Маркет</a></li>
-            </ul>
-            <a href="https://t.me/Gerkilop_bot" target="_blank" class="btn-tg">
-                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.03-1.99 1.27-5.62 3.72-.53.36-1.01.54-1.44.53-.47-.02-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.24.35-.49.96-.75 3.78-1.65 6.31-2.74 7.59-3.27 3.61-1.51 4.36-1.77 4.85-1.78.11 0 .35.03.5.15.13.11.17.26.19.37 0 .07.02.24 0 .38z"/></svg>
-                Поддержка
-            </a>
+    <div class="page-wrap">
+        <div class="top-bar">
+            <a href="index.html" class="back-link">&larr; Вернуться на главную Gerkilop</a>
+            <span class="club-pill">&#10022; Gerkilop &bull; Клуб покупателей</span>
         </div>
-    </header>
 
-    <!-- Главный экран -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Цифровые картины по номерам от Gerkilop</h1>
-            <p>Превратите любое изображение в шедевр. Покупайте цифровые шаблоны высокой детализации с палитрой и схемами для печати на холсте или рисования на планшете.</p>
-            <div class="hero-buttons">
-                <a href="https://market.yandex.ru/business--gerkilop2/216670013?generalContext=t%3DshopInShop%3Bi%3D1%3Bbi%3D216670013%3B&rs=eJwzkv3EKMLBKLDwEKsEg0bPUVaNjUB89ijrXqYJ9_c4AgCSfwr7&searchContext=sins_ctx" target="_blank" class="btn-market">
-                    Перейти на Яндекс Маркет
-                </a>
-                <a href="podarok.html" class="btn-gift">
-                    🎁 Забрать подарки
-                </a>
-            </div>
-        </div>
-        
-        <!-- 3D Интерактивная сцена -->
-        <div class="hero-3d-wrapper" id="sceneContainer">
-            <div class="scene-card" id="sceneCard">
-                <div class="layer-back"></div>
-                <div class="layer-front"></div>
-                <div class="glare-effect"></div>
-                <div class="scene-label">Наведите курсор ✨</div>
-            </div>
-        </div>
-    </section>
+        <div class="main-card">
+            <div class="gold-strip"></div>
 
-    <!-- О бренде -->
-    <section id="about" class="about-section">
-        <div class="about-grid">
-            <div class="about-card">
-                <div class="number">01</div>
-                <h3>Мгновенный доступ</h3>
-                <p>Цифровые файлы поступают сразу после оформления заказа. Никакого ожидания доставки.</p>
+            <div class="hero-box">
+                <span class="tag">Спасибо за покупку на Яндекс Маркете</span>
+                <h1>Заберите 3 PDF-шаблона в подарок</h1>
+                <p>Внутри каждого файла — готовый цветной пример, схема с номерами и палитра на 24 оттенка для печати и планшета.</p>
             </div>
-            <div class="about-card">
-                <div class="number">02</div>
-                <h3>Высокая четкость</h3>
-                <p>Тщательно проработанные контуры и номера, которые легко читаются как при печати, так и на экране планшета.</p>
-            </div>
-            <div class="about-card">
-                <div class="number">03</div>
-                <h3>Поддержка 24/7</h3>
-                <p>Возникли вопросы по файлам? Наш Telegram-бот всегда на связи и поможет разобраться с заказом.</p>
-            </div>
-        </div>
-    </section>
 
-    <!-- Категории с крупными цифрами -->
-    <section id="categories" class="categories-section">
-        <h2 class="section-title">Категории цифровых наборов</h2>
-        <div class="categories-grid">
-            <div class="cat-card">
-                <div class="cat-num">01</div>
-                <div class="cat-info">
-                    <h3>Животный мир</h3>
-                    <p>Дикие звери, грациозные птицы, домашние любимцы и сказочные персонажи в детальных схемах.</p>
-                    <a href="https://market.yandex.ru/business--gerkilop2/216670013?generalContext=t%3DshopInShop%3Bi%3D1%3Bbi%3D216670013%3B&rs=eJwzkv3EKMLBKLDwEKsEg0bPUVaNjUB89ijrXqYJ9_c4AgCSfwr7&searchContext=sins_ctx" target="_blank" class="cat-link">Смотреть на Маркете &rarr;</a>
+            <div class="content-box">
+                <div class="gifts-grid">
+                    <div class="gift-card">
+                        <div class="gift-thumb-wrap">
+                            <span class="gift-badge">PDF &bull; 24 цвета</span>
+                            <img src="https://github.com/itfotost-spec/gerkilop/blob/main/gift-mayak.jpg?raw=true" alt="Шаблон Маяк">
+                        </div>
+                        <div class="gift-meta">
+                            <div class="gift-title">Маяк</div>
+                            <div class="gift-sub">Тёплый закат у скалистого берега</div>
+                        </div>
+                    </div>
+
+                    <div class="gift-card">
+                        <div class="gift-thumb-wrap">
+                            <span class="gift-badge">PDF &bull; 24 цвета</span>
+                            <img src="https://github.com/itfotost-spec/gerkilop/blob/main/gift-dvorik.jpg?raw=true" alt="Шаблон Европейский дворик">
+                        </div>
+                        <div class="gift-meta">
+                            <div class="gift-title">Европейский дворик</div>
+                            <div class="gift-sub">Уютная улочка с цветами и кафе</div>
+                        </div>
+                    </div>
+
+                    <div class="gift-card">
+                        <div class="gift-thumb-wrap">
+                            <span class="gift-badge">PDF &bull; 24 цвета</span>
+                            <img src="https://github.com/itfotost-spec/gerkilop/blob/main/gift-buket.jpg?raw=true" alt="Шаблон Букет цветов">
+                        </div>
+                        <div class="gift-meta">
+                            <div class="gift-title">Букет цветов</div>
+                            <div class="gift-sub">Нежные пионы в стеклянной вазе</div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="cat-card">
-                <div class="cat-num">02</div>
-                <div class="cat-info">
-                    <h3>Пейзажи и природа</h3>
-                    <p>Уютные лесные тропинки, горные водопады, морские закаты и живописные уголки планеты.</p>
-                    <a href="https://market.yandex.ru/business--gerkilop2/216670013?generalContext=t%3DshopInShop%3Bi%3D1%3Bbi%3D216670013%3B&rs=eJwzkv3EKMLBKLDwEKsEg0bPUVaNjUB89ijrXqYJ9_c4AgCSfwr7&searchContext=sins_ctx" target="_blank" class="cat-link">Смотреть на Маркете &rarr;</a>
-                </div>
-            </div>
-            <div class="cat-card">
-                <div class="cat-num">03</div>
-                <div class="cat-info">
-                    <h3>Портреты и силуэты</h3>
-                    <p>Эмоциональные и стилизованные изображения людей, романтические сюжеты и графические портреты.</p>
-                    <a href="https://market.yandex.ru/business--gerkilop2/216670013?generalContext=t%3DshopInShop%3Bi%3D1%3Bbi%3D216670013%3B&rs=eJwzkv3EKMLBKLDwEKsEg0bPUVaNjUB89ijrXqYJ9_c4AgCSfwr7&searchContext=sins_ctx" target="_blank" class="cat-link">Смотреть на Маркете &rarr;</a>
-                </div>
-            </div>
-            <div class="cat-card">
-                <div class="cat-num">04</div>
-                <div class="cat-info">
-                    <h3>Архитектура и города</h3>
-                    <p>Узкие улочки старой Европы, современные мегаполисы, маяки и уютные домики у воды.</p>
-                    <a href="https://market.yandex.ru/business--gerkilop2/216670013?generalContext=t%3DshopInShop%3Bi%3D1%3Bbi%3D216670013%3B&rs=eJwzkv3EKMLBKLDwEKsEg0bPUVaNjUB89ijrXqYJ9_c4AgCSfwr7&searchContext=sins_ctx" target="_blank" class="cat-link">Смотреть на Маркете &rarr;</a>
+
+                <!-- Подставь сюда свой рабочий код/action формы Estismail -->
+                <div class="form-panel">
+                    <h2>Куда отправить все 3 шаблона?</h2>
+                    <p class="form-hint">Укажите имя и почту — сразу отправим PDF-файлы и шпаргалку по планшету.</p>
+
+                    <form action="#" method="post">
+                        <div class="form-row">
+                            <input type="text" name="name" class="form-input" placeholder="Ваше имя" required>
+                            <input type="email" name="email" class="form-input" placeholder="Ваш Email" required>
+                        </div>
+                        <button type="submit" class="btn-submit">&#10022; Забрать все 3 подарка бесплатно &rarr;</button>
+                    </form>
+
+                    <p class="bottom-note">Бесплатно для покупателей Gerkilop. Отписаться можно в один клик в любом письме.</p>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Футер -->
-    <footer>
-        <div class="footer-logo">Gerkilop</div>
-        <p>Официальный магазин цифровых товаров на Яндекс Маркете.</p>
-        <p>Антонов Станислав Александрович ИНН 400101385573</p>
-        <p>Подарки и бонусы для покупателей: <a href="podarok.html" style="color: #d4a373; text-decoration: none; font-weight: 600;">Получить 3 бесплатных шаблона</a></p>
-        <p>Поддержка клиентов: <a href="https://t.me/Gerkilop_bot" target="_blank" style="color: #7c9082; text-decoration: none;">@Gerkilop_bot</a></p>
-        <p style="margin-top: 2rem; font-size: 0.8rem;">&copy; 2026 Gerkilop. Все права защищены.</p>
-    </footer>
-
-    <!-- Скрипт для 3D эффекта -->
-    <script>
-        const container = document.getElementById('sceneContainer');
-        const card = document.getElementById('sceneCard');
-        const glare = document.querySelector('.glare-effect');
-
-        const sensitivity = 20; 
-
-        container.addEventListener('mousemove', (e) => {
-            const rect = container.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-
-            const rotateX = ((y - centerY) / centerY) * -sensitivity;
-            const rotateY = ((x - centerX) / centerX) * sensitivity;
-
-            card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-
-            const glareX = ((x - centerX) / centerX) * -50;
-            const glareY = ((y - centerY) / centerY) * -50;
-            glare.style.background = `radial-gradient(circle at ${50 + glareX}% ${50 + glareY}%, rgba(255,255,255,0.2), transparent 60%)`;
-        });
-
-        container.addEventListener('mouseleave', () => {
-            card.style.transform = `rotateX(0deg) rotateY(0deg)`;
-            glare.style.background = `radial-gradient(circle at 50% 50%, rgba(255,255,255,0.15), transparent 60%)`;
-        });
-    </script>
-
+    </div>
 </body>
 </html>
