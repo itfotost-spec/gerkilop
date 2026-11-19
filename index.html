@@ -4,16 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Подарки покупателям — Gerkilop</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-variant-numeric: tabular-nums;
         }
 
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
             background: radial-gradient(circle at top, #233d32 0%, #111e18 100%);
             color: #242e29;
             min-height: 100vh;
@@ -40,10 +41,19 @@
             text-decoration: none;
             font-size: 0.92rem;
             font-weight: 600;
+            padding: 6px 12px;
+            border-radius: 999px;
+            transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
         }
 
         .back-link:hover {
-            text-decoration: underline;
+            background: rgba(229, 195, 114, 0.14);
+            color: #f6dc93;
+            transform: translateX(-2px);
+        }
+
+        .back-link:active {
+            transform: scale(0.97);
         }
 
         .club-pill {
@@ -90,9 +100,9 @@
         }
 
         .hero-box h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.15rem;
-            line-height: 1.2;
+            font-size: 2.1rem;
+            font-weight: 800;
+            line-height: 1.25;
             color: #ffffff;
             margin-bottom: 10px;
         }
@@ -123,6 +133,13 @@
             box-shadow: 0 10px 24px rgba(27, 50, 40, 0.08);
             display: flex;
             flex-direction: column;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+
+        .gift-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 32px rgba(27, 50, 40, 0.14);
+            border-color: #c59b43;
         }
 
         .gift-thumb-wrap {
@@ -138,6 +155,11 @@
             height: 100%;
             object-fit: cover;
             display: block;
+            transition: transform 0.35s ease;
+        }
+
+        .gift-card:hover .gift-thumb-wrap img {
+            transform: scale(1.04);
         }
 
         .gift-badge {
@@ -158,8 +180,7 @@
         }
 
         .gift-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             font-weight: 700;
             color: #1b3228;
             margin-bottom: 4px;
@@ -179,8 +200,8 @@
         }
 
         .form-panel h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.55rem;
+            font-size: 1.45rem;
+            font-weight: 800;
             color: #1b3228;
             margin-bottom: 6px;
         }
@@ -205,26 +226,61 @@
             border: 1px solid #c8b892;
             background: #ffffff;
             font-size: 0.95rem;
-            font-family: inherit;
             color: #1b3228;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
         }
 
         .form-input:focus {
-            outline: 2px solid #c59b43;
-            border-color: #1b3228;
+            outline: none;
+            border-color: #b88931;
+            box-shadow: 0 0 0 3px rgba(197, 155, 67, 0.22);
         }
 
+        /* Анимированная золотая кнопка */
         .btn-submit {
+            position: relative;
+            overflow: hidden;
             width: 100%;
             padding: 15px 24px;
             border-radius: 999px;
             border: 1px solid #f7e1a8;
-            background: linear-gradient(135deg, #e5be6b 0%, #b88931 100%);
+            background: linear-gradient(135deg, #e5be6b 0%, #c59b43 50%, #b88931 100%);
+            background-size: 200% 200%;
             color: #16261f;
             font-size: 1rem;
             font-weight: 800;
             cursor: pointer;
             box-shadow: 0 8px 20px rgba(184, 137, 49, 0.32);
+            transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+                        box-shadow 0.22s ease,
+                        background-position 0.4s ease;
+        }
+
+        .btn-submit::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -120%;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+            transform: skewX(-20deg);
+            transition: left 0.55s ease;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            background-position: 100% 50%;
+            box-shadow: 0 14px 28px rgba(184, 137, 49, 0.46);
+        }
+
+        .btn-submit:hover::after {
+            left: 140%;
+        }
+
+        .btn-submit:active {
+            transform: translateY(0) scale(0.985);
+            box-shadow: 0 5px 14px rgba(184, 137, 49, 0.3);
         }
 
         .bottom-note {
